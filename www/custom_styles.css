@@ -1,0 +1,41 @@
+/*Some custom css to modify the standard Shiny values. */
+
+.modal-dialog {
+    width: 85%;
+}
+
+.box.box-warning {
+    border-top-color: #f39c12;
+}
+
+.box.box-primary {
+    border-top-color: #0A4783;
+}
+.box.box-solid.box-primary {
+  border: 1px solid #0A4783;
+}
+
+.box.box-solid.box-primary > .box-header {
+  color: #ffffff;
+  background-color: #0A4783;
+}
+.box.box-solid.box-primary > .box-header a,
+.box.box-solid.box-primary > .box-header .btn {
+  color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #0A4783;
+    border-color: #367fa9;
+}
+
+.bg-orange {
+    background-color: #f49831 !important;
+}
+
+.bg-blue {
+    background-color: #0A4783 !important;
+}
+
+
+
