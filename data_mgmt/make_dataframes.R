@@ -26,8 +26,8 @@ make_consult_year_summary_df <- function(x) {
 }
 
 ############################################################################
-# Create a small dataframe for top 25 species bar plot
-make_top_25_species_df <- function(sub) {
+# Create a small dataframe for top 50 species bar plot
+make_top_50_species_df <- function(sub) {
     sub_species <- table(unlist(sub$spp_ev_ls))
     sorted <- -sort(-sub_species)
     if (length(sorted) <= 50) {
@@ -36,6 +36,21 @@ make_top_25_species_df <- function(sub) {
     } else {
         dat <- data.frame(species=names(sorted)[1:50], 
                           consultations=as.vector(sorted[1:50]))
+    }
+    return(dat)
+}
+
+############################################################################
+# Create a small dataframe for top 25 species bar plot
+make_top_25_species_df <- function(sub) {
+    sub_species <- table(unlist(sub$spp_ev_ls))
+    sorted <- -sort(-sub_species)
+    if (length(sorted) <= 25) {
+        dat <- data.frame(species=names(sorted), 
+                          consultations=as.vector(sorted))
+    } else {
+        dat <- data.frame(species=names(sorted)[1:25], 
+                          consultations=as.vector(sorted[1:25]))
     }
     return(dat)
 }

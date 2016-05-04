@@ -28,11 +28,17 @@ compare_page <- {
                 ),
                 br(), br()
             ),
-            column(10,
-                br(), br(),
-                h2("Endangered Species Act consultation explorer",
-                   style="text-align:center;font-weight:bold")
+            column(1,
+                br(), br(), br(),
+                h5(span(class = "label label-success", "App updated May, 2016")),
+                br(), br()
             ),
+            column(8,
+                br(), br(),
+                h2(style="text-align:center;font-weight:bold",
+                   "Endangered Species Act consultation explorer")
+            ),
+            column(1),
             column(1,
                 br(), br(),
                 a(href="http://www.defenders.org",
@@ -344,13 +350,6 @@ compare_page <- {
                         includeMarkdown("txt/getting_started.md")
                 )
             )
-        ),
-        fluidRow(
-            column(3),
-            column(6,
-                bsAlert("waiting_comp")
-            ),
-            column(3)
         ),
         fluidRow(
             column(6,

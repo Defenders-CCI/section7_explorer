@@ -26,11 +26,17 @@ single_view_page <- {
                 ),
                 br(), br()
             ),
-            column(10,
-                br(), br(),
-                h2("Endangered Species Act consultation explorer",
-                   style="text-align:center;font-weight:bold")
+            column(1,
+                br(), br(), br(),
+                h5(span(class = "label label-success", "App updated May, 2016")),
+                br(), br()
             ),
+            column(8,
+                br(), br(),
+                h2(style="text-align:center;font-weight:bold",
+                   "Endangered Species Act consultation explorer")
+            ),
+            column(1),
             column(1,
                 br(), br(),
                 a(href="http://www.defenders.org",
@@ -202,15 +208,7 @@ single_view_page <- {
             )
         ),
 
-        fluidRow(
-            column(3),
-            column(6,
-                bsAlert("waiting")
-            ),
-            column(3)
-        ),
         br(),
-
         fluidRow(
             column(3,
                 tipify(
@@ -263,7 +261,7 @@ single_view_page <- {
         ),
 
         fluidRow(
-            column(6,
+            column(4,
                 box(title="Consultations by fiscal year",
                     status="primary",
                     solidHeader=TRUE,
@@ -272,6 +270,7 @@ single_view_page <- {
                     collapsible=TRUE,
                     collapsed=FALSE,
                     htmlOutput("consults_time"),
+                    helpText(textOutput("date_range")),
                     bsButton("modConsultsTime",
                              label="Larger",
                              style="primary",
@@ -279,7 +278,7 @@ single_view_page <- {
                     )
                 )
             ),
-            column(6,
+            column(4,
                 box(title="Consultations by state",
                     status="primary",
                     solidHeader=TRUE,
@@ -309,10 +308,31 @@ single_view_page <- {
                     )
                 )
             ),
+            column(4,
+                popify(
+                    box(title="Consultations by work category (top 20)",
+                        status="primary",
+                        solidHeader=TRUE,
+                        height=NULL,
+                        width=NULL,
+                        collapsible=TRUE,
+                        collapsed=FALSE,
+                        htmlOutput("consults_work_cat"),
+                        bsButton("modConsultsCategory",
+                                 label="Larger",
+                                 style="primary",
+                                 size="small"
+                        )
+                    ),
+                    title="Work categories",
+                    content="Work categories are generally broad; see the 'Data' page to get more detailed information about your selected data."
+                )
+            ),
             bsModal("largeConsultsTime",
                     title="Consultations by Fiscal Year",
                     trigger="modConsultsTime",
                     size="large",
+                    helpText(textOutput("date_range_2")),
                     htmlOutput("consults_time_large")
             ),
             bsModal("largeConsultsMap",
@@ -332,34 +352,12 @@ single_view_page <- {
                             helpText(style="font-size:large", "Five New England states and parts of Iowa and Illinois are each covered by a single FWS office. See table for consultation counts of these groups of states.")
                         )
                     )
-            )
-        ),
-
-        fluidRow(
-            column(12,
-                popify(
-                    box(title="Consultations by species (top 25)",
-                        status="primary",
-                        solidHeader=TRUE,
-                        height=NULL,
-                        width=NULL,
-                        collapsible=TRUE,
-                        collapsed=FALSE,
-                        htmlOutput("consults_species"),
-                        bsButton("modConsultsSpecies",
-                                 label="Larger",
-                                 style="primary",
-                                 size="small")
-                    ),
-                    title="Species",
-                    content="If your favorite species isn't here, try searching in the 'Selection criteria' box."
-                )
             ),
-            bsModal("largeConsultsSpecies",
-                    title="Consultations by species (top 25)",
-                    trigger="modConsultsSpecies",
+            bsModal("largeConsultsCategory",
+                    title="Consultations by work category (top 20)",
+                    trigger="modConsultsCategory",
                     size="large",
-                    htmlOutput("consults_species_large")
+                    htmlOutput("consults_work_cat_large")
             )
         ),
 
@@ -381,42 +379,13 @@ single_view_page <- {
                     )
                 )
             ),
-            column(6,
-                popify(
-                    box(title="Consultations by work category (top 20)",
-                        status="primary",
-                        solidHeader=TRUE,
-                        height=NULL,
-                        width=NULL,
-                        collapsible=TRUE,
-                        collapsed=FALSE,
-                        htmlOutput("consults_work_cat"),
-                        bsButton("modConsultsCategory",
-                                 label="Larger",
-                                 style="primary",
-                                 size="small"
-                        )
-                    ),
-                    title="Work categories",
-                    content="Work categories are generally broad; see the 'Data' page to get more detailed information about your selected data."
-                )
-            ),
             bsModal("largeConsultsDuration",
                     title="Distributions of consultation durations",
                     trigger="modConsultsDuration",
                     size="large",
                     htmlOutput("consults_duration_large")
             ),
-            bsModal("largeConsultsCategory",
-                    title="Consultations by work category (top 20)",
-                    trigger="modConsultsCategory",
-                    size="large",
-                    htmlOutput("consults_work_cat_large")
-            )
-        ),
-
-        fluidRow(
-            column(12,
+            column(6,
                 box(title="Consultations by agency (top 25)",
                     status="primary",
                     solidHeader=TRUE,
@@ -425,11 +394,11 @@ single_view_page <- {
                     collapsible=TRUE,
                     collapsed=FALSE,
                     htmlOutput("consults_agencies"),
+                    helpText("Agencies in the database may include either the federal action agency or the applicant. The plotted values are therefore lower limits to the number of consultations by federal agencies."),
                     bsButton("modConsultsAgency",
                              label="Larger",
                              style="primary",
-                             size="small"),
-                    helpText("Agencies in the database may include either the federal action agency or the applicant. The plotted values are therefore lower limits to the number of consultations by federal agencies.")
+                             size="small")
                 )
             ),
             bsModal("largeConsultsAgency",
@@ -437,6 +406,34 @@ single_view_page <- {
                     trigger="modConsultsAgency",
                     size="large",
                     htmlOutput("consults_agencies_large")
+            )
+        ),
+
+        fluidRow(
+            column(12,
+                popify(
+                    box(title="Consultations by species (top 50)",
+                        status="primary",
+                        solidHeader=TRUE,
+                        height=NULL,
+                        width=NULL,
+                        collapsible=TRUE,
+                        collapsed=FALSE,
+                        htmlOutput("consults_species"),
+                        bsButton("modConsultsSpecies",
+                                 label="Larger",
+                                 style="primary",
+                                 size="small")
+                    ),
+                    title="Species",
+                    content="If your favorite species isn't here, try searching in the 'Selection criteria' box."
+                )
+            ),
+            bsModal("largeConsultsSpecies",
+                    title="Consultations by species (top 50)",
+                    trigger="modConsultsSpecies",
+                    size="large",
+                    htmlOutput("consults_species_large")
             )
         ),
 

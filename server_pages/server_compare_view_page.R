@@ -60,11 +60,11 @@ server_compare_view_page <- function(input, output, selected_1, selected_2,
     })
 
     output$consults_species_1 <- renderGvis({
-        make_species_plot(selected_1)
+        make_species_plot(selected_1, n = 25)
     })
 
     output$consults_species_2 <- renderGvis({
-        make_species_plot(selected_2)
+        make_species_plot(selected_2, n = 25)
     })
 
     output$consults_agency_1 <- renderGvis({

@@ -33,8 +33,12 @@ make_consult_time_figure <- function(dat, height="415px") {
 
 #############################################################################
 # Species summary barchart
-make_species_plot <- function(dat, height="475px", chartHeight="65%") {
-    cur_dat <- make_top_25_species_df(dat())
+make_species_plot <- function(dat, n=50, height="475px", chartHeight="65%") {
+    if(n == 50) {
+        cur_dat <- make_top_50_species_df(dat())
+    } else {
+        cur_dat <- make_top_25_species_df(dat())
+    }
     left <- nchar(as.character(cur_dat$species[1])) * 5
     if (left > 200) {
         left <- 200
