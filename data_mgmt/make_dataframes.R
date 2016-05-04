@@ -30,12 +30,12 @@ make_consult_year_summary_df <- function(x) {
 make_top_25_species_df <- function(sub) {
     sub_species <- table(unlist(sub$spp_ev_ls))
     sorted <- -sort(-sub_species)
-    if (length(sorted) <= 25) {
+    if (length(sorted) <= 50) {
         dat <- data.frame(species=names(sorted), 
                           consultations=as.vector(sorted))
     } else {
-        dat <- data.frame(species=names(sorted)[1:25], 
-                          consultations=as.vector(sorted[1:25]))
+        dat <- data.frame(species=names(sorted)[1:50], 
+                          consultations=as.vector(sorted[1:50]))
     }
     return(dat)
 }

@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 
+# system("touch restart.txt", intern = FALSE)
+
 #############################################################################
 # Load packages and source files
 #############################################################################
@@ -51,7 +53,9 @@ source("txt/text_styles.R")
 #############################################################################
 # Load the data and basic data prep
 #############################################################################
-load("data/FWS_S7_clean_30Jul2015.RData")
+# load("data/FWS_S7_clean_30Jul2015.RData")
+# load("data/FWS_S7_clean_02May2016.RData")
+load("data/FWS_S7_clean_03May2016_0-4.RData")
 
 full$work_category <- as.factor(full$work_category)
 full$lead_agency <- as.factor(full$lead_agency)
@@ -79,7 +83,8 @@ states <- c("All", "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA",
 species <- c("All", as.character(levels(as.factor(unlist(unlist(full$spp_ev_ls))))))
 
 # table to look up species-specific jeop/admod info
-sp_look_f <- "data/jeop_admod_spp_table_12Jun2015.tab"
+# sp_look_f <- "data/jeop_admod_spp_table_12Jun2015.tab"
+sp_look_f <- "data/jeop_admod_spp_table_02May2016.tsv"
 sp_ja_dat <- read.table(sp_look_f, sep="\t", header=T)
 
 # data for ESFO-level map

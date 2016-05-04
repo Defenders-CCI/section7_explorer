@@ -39,7 +39,17 @@ server_single_view_page <- function(input, output, selected, session) {
     })
 
     output$consults_time <- renderGvis({
-        make_consult_time_figure(selected)
+        make_consult_time_figure(selected, "290px")
+    })
+
+    output$date_range <- renderText({
+        paste0("Data from 2008-01-01 through ", 
+               max(selected()$FWS_concl_date, na.rm=TRUE), ".")
+    })
+
+    output$date_range_2 <- renderText({
+        paste0("Data from 2008-01-01 through ", 
+               max(selected()$FWS_concl_date, na.rm=TRUE), ".")
     })
 
     output$consults_time_large <- renderGvis({
@@ -59,7 +69,8 @@ server_single_view_page <- function(input, output, selected, session) {
         map <- gvisGeoChart(data, 
             locationvar = "state", 
             colorvar = "consults",
-            options = list(height="360",
+            options = list(height="250",
+                           width="350",
                            region = "US",
                            legend = "none",
                            displayMode = "regions",
@@ -129,7 +140,7 @@ server_single_view_page <- function(input, output, selected, session) {
     })
 
     output$consults_work_cat <- renderGvis({
-        make_work_cat_plot(selected)
+        make_work_cat_plot(selected, "325px")
     })
 
     output$consults_work_cat_large <- renderGvis({
@@ -137,7 +148,7 @@ server_single_view_page <- function(input, output, selected, session) {
     })
 
     output$consults_agencies <- renderGvis({
-        make_agency_plot(selected)
+        make_agency_plot(selected, "385px")
     })
 
     output$consults_agencies_large <- renderGvis({
@@ -149,7 +160,7 @@ server_single_view_page <- function(input, output, selected, session) {
         list(src = "www/line-01.png",
              contentType = "image/png",
              alt = "",
-             a(href = ""),
+             # a(href = ""),
              width=width)
     }, deleteFile=FALSE)
 
