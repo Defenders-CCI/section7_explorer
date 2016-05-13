@@ -5,7 +5,7 @@
 Version | DOI
 ------- | ----
 v1.0    | [![DOI](https://zenodo.org/badge/20884/Defenders-ESC/section7_explorer.svg)](https://zenodo.org/badge/latestdoi/20884/Defenders-ESC/section7_explorer)
-v2.0    | Not yet linked.
+v2.0    | [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.51408.svg)](http://dx.doi.org/10.5281/zenodo.51408)
 
 #### Summary
 
