@@ -156,8 +156,8 @@ shinyServer(function(input, output, session) {
         get_selected_data(input$which_data),
         rownames=FALSE,
         filter="top", 
-        extensions="ColVis", 
-        options = list(dom = 'C<"clear">lfrtip')
+        extensions = 'Buttons', options = list(dom = 'Bfrtip', 
+                                               buttons = I('colvis'))
     )
 
     output$download_data <- downloadHandler(

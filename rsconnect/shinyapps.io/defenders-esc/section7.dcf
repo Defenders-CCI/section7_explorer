@@ -2,8 +2,8 @@ name: section7
 account: defenders-esc
 server: shinyapps.io
 appId: 73188
-bundleId: 329923
-url: https://defenders-esc.shinyapps.io/section7
-when: 1450013259.19121
+bundleId: 475441
+url: https://defenders-esc.shinyapps.io/section7/
+when: 1465386839.69766
 asMultiple: FALSE
 asStatic: FALSE
