@@ -55,7 +55,8 @@ source("txt/text_styles.R")
 #############################################################################
 # load("data/FWS_S7_clean_30Jul2015.RData")
 # load("data/FWS_S7_clean_02May2016.RData")
-load("data/FWS_S7_clean_03May2016_0-4.RData")
+#load("data/FWS_S7_clean_03May2016_0-4.RData")
+load("data/FWS_S7_clean_03Feb2017.RData")
 
 full$work_category <- as.factor(full$work_category)
 full$lead_agency <- as.factor(full$lead_agency)
@@ -74,10 +75,10 @@ cons_complx <- c("All", levels(full$consult_complex))
 agencies <- c("All", levels(full$lead_agency))
 work_cats <- c("All", levels(full$work_category))
 formal_cons_choice <- c("All", "Yes", "No")
-states <- c("All", "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", 
-             "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", 
-             "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", 
-             "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", 
+states <- c("All", "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA",
+             "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME",
+             "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM",
+             "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
              "UT", "VA", "VT", "WA", "WI", "WV", "WY")
 
 species <- c("All", as.character(levels(as.factor(unlist(unlist(full$spp_ev_ls))))))
@@ -89,7 +90,7 @@ sp_ja_dat <- read.table(sp_look_f, sep="\t", header=T)
 
 # data for ESFO-level map
 eso_geo_fil <- "data/fieldOfficesTAILS.shp"
-eso_geo_dat <- readShapePoly(eso_geo_fil, 
+eso_geo_dat <- readShapePoly(eso_geo_fil,
                              proj4string = CRS("+proj=merc +lon_0=90w"))
 
 extent <- as.vector(bbox(eso_geo_dat))
@@ -107,7 +108,7 @@ validateColor_2 <- function(color) {
     if (color %in% validColors_2) {
         return(TRUE)
     }
-  
+
     stop("Invalid color: ", color, ". Valid colors are: ",
          paste(validColors_2, collapse = ", "), ".")
 }

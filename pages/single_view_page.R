@@ -28,7 +28,7 @@ single_view_page <- {
             ),
             column(1,
                 br(), br(), br(),
-                h5(span(class = "label label-success", "App updated May, 2016")),
+                h5(span(class = "label label-success", "App updated Dec, 2016")),
                 br(), br()
             ),
             column(8,
