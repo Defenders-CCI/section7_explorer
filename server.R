@@ -23,6 +23,19 @@ source("server_pages/server_alt_map_page.R")
 #############################################################################
 shinyServer(function(input, output, session) {
 
+  createAlert(
+    session,
+    "changing_places",
+    "alert1",
+    title = "We're moving!",
+    content = "The Section 7 Explorer will soon live primarily at
+              <a href='https://cci-dev.org/shiny/open/section7_explorer/'
+              target='_blank'>
+              the CCI development site</a>. Please update your bookmarks.
+              (You may close this window by clicking the 'x' in the upper-right.)",
+    style = "warning",
+    append = FALSE
+  )
 
     withProgress(message = "Loading data...",
                  detail = "Please wait",
@@ -155,8 +168,8 @@ shinyServer(function(input, output, session) {
     output$selected_data <- DT::renderDataTable(
         get_selected_data(input$which_data),
         rownames=FALSE,
-        filter="top", 
-        extensions = 'Buttons', options = list(dom = 'Bfrtip', 
+        filter="top",
+        extensions = 'Buttons', options = list(dom = 'Bfrtip',
                                                buttons = I('colvis'))
     )
 
@@ -175,8 +188,8 @@ shinyServer(function(input, output, session) {
                 data_to_get <- selected_3()
             }
             for_write <- make_writeable(data_to_get)
-            write.table(for_write, 
-                        file=file, 
+            write.table(for_write,
+                        file=file,
                         sep="\t",
                         row.names=FALSE,
                         quote=FALSE)

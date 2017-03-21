@@ -1,5 +1,13 @@
 /*Some custom css to modify the standard Shiny values. */
 
+body {
+  font-weight: 300;
+}
+
+.box {
+  border-radius: 2px;
+}
+
 .modal-dialog {
     width: 85%;
 }

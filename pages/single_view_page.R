@@ -18,8 +18,13 @@ single_view_page <- {
     tabPanel(
         title="Single View",
         fluidRow(
+          br(), br(), br(),
+          column(12,
+            bsAlert("changing_places")
+          )
+        ),
+        fluidRow(
             column(1,
-                br(), br(), br(),
                 bsButton("get_started",
                          label="Getting Started",
                          style="primary"
@@ -27,18 +32,15 @@ single_view_page <- {
                 br(), br()
             ),
             column(1,
-                br(), br(), br(),
                 h5(span(class = "label label-success", "App updated Dec, 2016")),
                 br(), br()
             ),
             column(8,
-                br(), br(),
                 h2(style="text-align:center;font-weight:bold",
                    "Endangered Species Act consultation explorer")
             ),
             column(1),
             column(1,
-                br(), br(),
                 a(href="http://www.defenders.org",
                     imageOutput("defenders", height=NULL))
             )
@@ -200,7 +202,7 @@ single_view_page <- {
                         )
                     )
                 ),
-                bsModal(id="open_select", 
+                bsModal(id="open_select",
                         title="Getting started",
                         trigger="get_started",
                         includeMarkdown("txt/getting_started.md")
@@ -290,7 +292,7 @@ single_view_page <- {
                         column(9,
                             htmlOutput("consults_map")
                         ),
-                        column(3, 
+                        column(3,
                             br(),
                             br(),
                             tags$small(tableOutput("other_states"))
