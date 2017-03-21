@@ -4,8 +4,42 @@ body {
   font-weight: 300;
 }
 
+.content {
+  background-color: #E0E0E0;
+}
+
+#title {
+  margin-top: 2px;
+  font-weight: 800;
+  text-align: center;
+}
+
 .box {
   border-radius: 2px;
+  font-weight: 300;
+}
+
+.box.box-solid.box-primary,
+.box-body {
+  background-color: #ffffff;
+  border: 0 solid transparent;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+
+
+.box.box-solid.box-primary > .box-header {
+  color: #000;
+  background-color: #fff;
+  border-top: 4px solid #0A4783;
+  border-bottom: 1px solid #E0E0E0;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  font-weight: 700;
+}
+
+.box-header {
 }
 
 .modal-dialog {
@@ -16,11 +50,9 @@ body {
     border-top-color: #f39c12;
 }
 
+/*
 .box.box-primary {
     border-top-color: #0A4783;
-}
-.box.box-solid.box-primary {
-  border: 1px solid #0A4783;
 }
 
 .box.box-solid.box-primary > .box-header {
@@ -31,6 +63,7 @@ body {
 .box.box-solid.box-primary > .box-header .btn {
   color: #ffffff;
 }
+*/
 
 .btn-primary {
     background-color: #0A4783;

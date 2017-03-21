@@ -18,10 +18,10 @@ single_view_page <- {
     tabPanel(
         title="Single View",
         fluidRow(
-          br(), br(), br(),
-          column(12,
-            bsAlert("changing_places")
-          )
+          br(), br(), br() #,
+          # column(12,
+          #   bsAlert("changing_places")
+          # )
         ),
         fluidRow(
             column(1,
@@ -36,7 +36,8 @@ single_view_page <- {
                 br(), br()
             ),
             column(8,
-                h2(style="text-align:center;font-weight:bold",
+                h2(id = "title",
+                   # style="text-align:center;font-weight:bold",
                    "Endangered Species Act consultation explorer")
             ),
             column(1),
@@ -101,7 +102,20 @@ single_view_page <- {
                         )
                     ),
                     column(6,
-                        HTML("<p class='help-block'>Select your favorite state, species, work type, lead agency, and formal vs. informal consultations from drop-downs at left; graphs and maps will update automatically. You may select more than one category to filter on.  For example, if you're just interested in bull trout in Idaho and for projects involving the Forest Service, then you may select each of those criteria (or any others as you see fit).</p><br><br><code>Click the <span style='font-size:larger;font-weight:bold'>+</span> on the right in the box below to reveal additional selectors.</code>")
+                      tags$p(
+                        class='help-block',
+                        "Select your favorite state, species, work type, lead
+                        agency, and formal vs. informal consultations from
+                        drop-downs at left; graphs and maps will update
+                        automatically. You may select more than one category to
+                        filter on.  For example, if you're just interested in
+                        bull trout in Idaho and for projects involving the
+                        Forest Service, then you may select each of those
+                        criteria (or any others as you see fit)."
+                      ), br(), br(),
+                      tags$code("Click the + in the box below to reveal
+                                additional selectors."
+                      )
                     ),
                     column(12,
                         box(title="Additional selectors",
@@ -269,7 +283,7 @@ single_view_page <- {
                     solidHeader=TRUE,
                     height=NULL,
                     width=NULL,
-                    collapsible=TRUE,
+                    collapsible=FALSE,
                     collapsed=FALSE,
                     htmlOutput("consults_time"),
                     helpText(textOutput("date_range")),
@@ -286,7 +300,7 @@ single_view_page <- {
                     solidHeader=TRUE,
                     height=NULL,
                     width=NULL,
-                    collapsible=TRUE,
+                    collapsible=FALSE,
                     collapsed=FALSE,
                     fluidRow(
                         column(9,
@@ -317,7 +331,7 @@ single_view_page <- {
                         solidHeader=TRUE,
                         height=NULL,
                         width=NULL,
-                        collapsible=TRUE,
+                        collapsible=FALSE,
                         collapsed=FALSE,
                         htmlOutput("consults_work_cat"),
                         bsButton("modConsultsCategory",
@@ -370,7 +384,7 @@ single_view_page <- {
                     solidHeader=TRUE,
                     height=NULL,
                     width=NULL,
-                    collapsible=TRUE,
+                    collapsible=FALSE,
                     collapsed=FALSE,
                     htmlOutput("consults_duration"),
                     helpText("The full range of duration values is trimmed to make the graph more readable. Note that long duration (>135 days) may be caused by consultation reinitiation (see Sec. 7 background page) rather than a single, long-running consultation."),
@@ -393,7 +407,7 @@ single_view_page <- {
                     solidHeader=TRUE,
                     height=NULL,
                     width=NULL,
-                    collapsible=TRUE,
+                    collapsible=FALSE,
                     collapsed=FALSE,
                     htmlOutput("consults_agencies"),
                     helpText("Agencies in the database may include either the federal action agency or the applicant. The plotted values are therefore lower limits to the number of consultations by federal agencies."),
@@ -419,7 +433,7 @@ single_view_page <- {
                         solidHeader=TRUE,
                         height=NULL,
                         width=NULL,
-                        collapsible=TRUE,
+                        collapsible=FALSE,
                         collapsed=FALSE,
                         htmlOutput("consults_species"),
                         bsButton("modConsultsSpecies",
@@ -460,14 +474,7 @@ single_view_page <- {
         # ),
         # hr(),
 
-        fluidRow(
-            column(3),
-            column(6,
-                br(),
-                br()
-            ),
-            column(3)
-        ),
+        fluidRow( br(), br() ),
 
         fluidRow(
             column(3),

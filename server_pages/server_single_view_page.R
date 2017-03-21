@@ -50,7 +50,8 @@ server_single_view_page <- function(input, output, selected, session) {
 
     output$date_range_2 <- renderText({
         paste0("Data from 2008-01-01 through ",
-               max(selected()$FWS_concl_date, na.rm=TRUE), ".")
+               "2016-12-31.")
+               # max(selected()$FWS_concl_date, na.rm=TRUE), ".")
     })
 
     output$consults_time_large <- renderGvis({
