@@ -44,7 +44,7 @@ server_overview <- function(input, output, selected) {
     })
 
     output$n_consult_time_plot <- renderUI({
-        title <- "FWS section 7 consultations (Jan 2008 - May 2015)"
+        title <- "FWS section 7 consultations (Jan 2008 - Dec 2016)"
         make_all_consult_summary_plot(full, title=title)
     })
 }
