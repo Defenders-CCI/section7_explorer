@@ -447,18 +447,18 @@ single_view_page <- {
         ),
 
         hr(),
-        fluidRow(
-            column(2),
-            column(3,
-                HTML("<h4 style='font-weight:bold'>Alternate views</h4> <p style='font-size:larger'>Check out the <span style='font-weight:bold'>Alternate Map</span> page for a different geographic view, the <span style='font-weight:bold'>Comparison View</span> page for side-by-side comparisons, and the <span style='font-weight:bold'>Data</span> page to get the raw data.</p>")
-            ),
-            column(2),
-            column(3,
-                shinyURL.ui(label=HTML("<h4 style='font-weight:bold'>Share your selection!</h4>"))
-            ),
-            column(2)
-        ),
-        hr(),
+        # fluidRow(
+        #     column(2),
+        #     column(3,
+        #         HTML("<h4 style='font-weight:bold'>Alternate views</h4> <p style='font-size:larger'>Check out the <span style='font-weight:bold'>Alternate Map</span> page for a different geographic view, the <span style='font-weight:bold'>Comparison View</span> page for side-by-side comparisons, and the <span style='font-weight:bold'>Data</span> page to get the raw data.</p>")
+        #     ),
+        #     column(2),
+        #     column(3,
+        #         p(" ") #shinyURL.ui(label=HTML("<h4 style='font-weight:bold'>Share your selection!</h4>"))
+        #     ),
+        #     column(2)
+        # ),
+        # hr(),
 
         fluidRow(
             column(3),

@@ -343,7 +343,7 @@ compare_page <- {
                         )
                     )
                 ),
-                bsModal(id="open_select_2", 
+                bsModal(id="open_select_2",
                         title="Getting started",
                         trigger="get_started_2",
                         width="75%",
@@ -495,7 +495,7 @@ compare_page <- {
                     column(9,
                         htmlOutput("consults_map_1")
                     ),
-                    column(3, 
+                    column(3,
                         br(),
                         br(),
                         tags$small(tableOutput("other_states_1"))
@@ -516,7 +516,7 @@ compare_page <- {
                     column(9,
                         htmlOutput("consults_map_2")
                     ),
-                    column(3, 
+                    column(3,
                         br(),
                         br(),
                         tags$small(tableOutput("other_states_2"))
@@ -643,18 +643,18 @@ compare_page <- {
             )
         ),
         hr(),
-        fluidRow(
-            column(2),
-            column(3,
-                HTML("<h4 style='font-weight:bold'>Alternate views</h4> <p style='font-size:larger'>Check out the <span style='font-weight:bold'>Alternate Map</span> page for a different geographic view, the <span style='font-weight:bold'>Single View</span> page for detailed views of a single selection, and the <span style='font-weight:bold'>Data</span> page to get the raw data.</p>")
-            ),
-            column(2),
-            column(3,
-                shinyURL.ui(label=HTML("<h4 style='font-weight:bold'>Share your selection!</h4>"))
-            ),
-            column(2)
-        ),
-        hr(),
+        # fluidRow(
+        #     column(2),
+        #     column(3,
+        #         HTML("<h4 style='font-weight:bold'>Alternate views</h4> <p style='font-size:larger'>Check out the <span style='font-weight:bold'>Alternate Map</span> page for a different geographic view, the <span style='font-weight:bold'>Single View</span> page for detailed views of a single selection, and the <span style='font-weight:bold'>Data</span> page to get the raw data.</p>")
+        #     ),
+        #     column(2),
+        #     column(3,
+        #         p(" ") #shinyURL.ui(label=HTML("<h4 style='font-weight:bold'>Share your selection!</h4>"))
+        #     ),
+        #     column(2)
+        # ),
+        # hr(),
         fluidRow(
             column(3),
             column(6,

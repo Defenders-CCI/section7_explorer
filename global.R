@@ -28,7 +28,7 @@ library(RJSONIO)
 library(shiny)
 library(shinydashboard)
 library(shinyBS)
-library(shinyURL)
+# library(shinyURL)
 library(xtable)
 
 library(leaflet)

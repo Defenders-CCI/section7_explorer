@@ -20,7 +20,7 @@
 ###########################################################################
 server_single_view_page <- function(input, output, selected, session) {
 
-    shinyURL.server(session)
+    # shinyURL.server(session)
 
     output$total_n_consult <- renderText({
         get_number_consults(selected())
@@ -43,12 +43,13 @@ server_single_view_page <- function(input, output, selected, session) {
     })
 
     output$date_range <- renderText({
-        paste0("Data from 2008-01-01 through ", 
-               max(selected()$FWS_concl_date, na.rm=TRUE), ".")
+        paste0("Data from 2008-01-01 through ",
+               "2016-12-31.")
+               # max(selected()$FWS_concl_date, na.rm=TRUE), ".")
     })
 
     output$date_range_2 <- renderText({
-        paste0("Data from 2008-01-01 through ", 
+        paste0("Data from 2008-01-01 through ",
                max(selected()$FWS_concl_date, na.rm=TRUE), ".")
     })
 
@@ -66,8 +67,8 @@ server_single_view_page <- function(input, output, selected, session) {
 
     output$consults_map <- renderGvis({
         data <- make_map_df(selected)
-        map <- gvisGeoChart(data, 
-            locationvar = "state", 
+        map <- gvisGeoChart(data,
+            locationvar = "state",
             colorvar = "consults",
             options = list(height="250",
                            width="350",
@@ -75,10 +76,10 @@ server_single_view_page <- function(input, output, selected, session) {
                            legend = "none",
                            displayMode = "regions",
                            resolution = "provinces",
-                           colorAxis = "{colors:['#CEDAE6', '#0A4783']}", 
-                           datalessRegionColor = "#FFFFFF", 
+                           colorAxis = "{colors:['#CEDAE6', '#0A4783']}",
+                           datalessRegionColor = "#FFFFFF",
                            projection = "lambert")
-        ) 
+        )
         map
     })
 
@@ -92,8 +93,8 @@ server_single_view_page <- function(input, output, selected, session) {
             width <- 0.9 * base
             height <- 0.642 * width
         }
-        map <- gvisGeoChart(data, 
-            locationvar = "state", 
+        map <- gvisGeoChart(data,
+            locationvar = "state",
             colorvar = "consults",
             options = list(width=width,
                            height=642,
@@ -101,10 +102,10 @@ server_single_view_page <- function(input, output, selected, session) {
                            legend="none",
                            displayMode = "regions",
                            resolution = "provinces",
-                           colorAxis = "{colors:['#CEDAE6', '#0A4783']}", 
-                           datalessRegionColor = "#FFFFFF", 
+                           colorAxis = "{colors:['#CEDAE6', '#0A4783']}",
+                           datalessRegionColor = "#FFFFFF",
                            projection = "lambert")
-        ) 
+        )
         cat(map$html$jsData)
         map
     })
@@ -115,7 +116,7 @@ server_single_view_page <- function(input, output, selected, session) {
         n_RIFO <- length(RIFO$activity_code)
         NEFO <- tmp[tmp$ESOffice == "NEW ENGLAND ECOLOGICAL SERVICES FIELD OFFICE",]
         n_NEFO <- length(NEFO$activity_code)
-        some_data <- data.frame(State=c("IA & IL", "NH, VT, CT, MA, & RI"), 
+        some_data <- data.frame(State=c("IA & IL", "NH, VT, CT, MA, & RI"),
                                 N=c(n_RIFO, n_NEFO))
         some_data
     }, include.rownames=FALSE)
@@ -126,7 +127,7 @@ server_single_view_page <- function(input, output, selected, session) {
         n_RIFO <- length(RIFO$activity_code)
         NEFO <- tmp[tmp$ESOffice == "NEW ENGLAND ECOLOGICAL SERVICES FIELD OFFICE",]
         n_NEFO <- length(NEFO$activity_code)
-        some_data <- data.frame(State=c("IA & IL", "NH, VT, CT, MA, & RI"), 
+        some_data <- data.frame(State=c("IA & IL", "NH, VT, CT, MA, & RI"),
                                 N=c(n_RIFO, n_NEFO))
         some_data
     }, include.rownames=FALSE)
