@@ -18,7 +18,7 @@ single_view_page <- {
   tabPanel(
     title="Single View",
     fluidRow(
-      br(), br(), br() ,
+      br(), br(), br(),
       column(12,
         bsAlert("changing_places")
       )
