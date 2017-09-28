@@ -23,7 +23,7 @@ source("server_pages/server_alt_map_page.R")
 #############################################################################
 shinyServer(function(input, output, session) {
 
-  updateQueryString("", session)
+  # updateQueryString("", session)
 
   createAlert(
     session,
